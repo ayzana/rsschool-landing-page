@@ -42,12 +42,12 @@ body {
   font-weight: 600;
   font-size: 16px;
   line-height: 150%;
-  background-color: var(--background-page);
   color: var(--text-primary);
 }
 
 .container {
   max-width: 1440px;
+  background-color: var(--background-page);
   margin: 0 auto;
   padding: 0 40px;
 }
@@ -208,4 +208,38 @@ body {
 
 .controls-item_active {
   background-color: var(--background-container);
+}
+
+.cards-container {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+}
+.cards-column {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.card-1,
+.card-4 {
+  height: 660px;
+}
+.card-2,
+.card-3 {
+  height: 430px;
+}
+
+.about-image {
+  width: 110%;
+  height: auto;
+  text-align: center;
+  flex-shrink: 0;
 }
