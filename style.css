@@ -301,3 +301,58 @@ body {
   line-height: 150%;
   color: var(--text-primary);
 }
+/* ------------ Footer --------- */
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  border-radius: 40px;
+  padding: 100px;
+  background: var(--background-container);
+  color: var(--text-inverse);
+}
+.footer-offer {
+  max-width: 530px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.socials {
+  display: flex;
+  gap: 12px;
+}
+.socials-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid var(--border-primary);
+  border-radius: 100px;
+  width: 60px;
+  height: 60px;
+}
+
+.contacts-info {
+  max-height: 186px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.contacts-info-title {
+  font-size: 24px;
+}
+.contacts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style: none;
+}
+.contacts-item {
+  display: flex;
+  gap: 16px;
+}
+.contacts-item a {
+  text-decoration: none;
+  color: var(--text-inverse);
+}
