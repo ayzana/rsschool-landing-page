@@ -91,7 +91,6 @@ body {
 }
 .menu-link {
   display: flex;
-  align-items: center;
   gap: 8px;
   text-decoration: none;
   color: var(--text-primary);
@@ -131,6 +130,9 @@ body {
   color: var(--text-inverse);
 }
 .hero-button {
+  display: flex;
+  gap: 8px;
+  align-items: center;
   border-radius: 100px;
   padding: 20px 78px;
   width: 200px;
@@ -144,8 +146,23 @@ body {
   line-height: 150%;
   text-align: center;
   color: var(--text-primary);
+  text-decoration: none;
 }
-
+.hero-button-image {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.5s ease,
+    visibility 0.5s ease;
+  width: 20px;
+  height: 20px;
+}
+.hero-button:hover {
+  .hero-button-image {
+    opacity: 1;
+    visibility: visible;
+  }
+}
 .section-favorite {
   display: flex;
   flex-direction: column;
@@ -281,7 +298,21 @@ body {
   padding: 12px 20px;
   width: 200px;
   height: 64px;
+  cursor: pointer;
+  transition: 0.5s;
 }
+.mobile-button:hover {
+  background: var(--background-container);
+  .button-text,
+  .button-title {
+    color: var(--text-inverse);
+  }
+
+  svg path {
+    fill: var(--text-inverse);
+  }
+}
+
 .button-info {
   display: flex;
   flex-direction: column;
