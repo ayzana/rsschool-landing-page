@@ -44,7 +44,9 @@ body {
   line-height: 150%;
   color: var(--text-primary);
 }
-
+li {
+  list-style: none;
+}
 .container {
   max-width: 1440px;
   background-color: var(--background-page);
@@ -394,6 +396,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  margin-bottom: 100px;
 }
 .menu-offer {
   display: flex;
@@ -424,4 +427,41 @@ body {
   width: 30px;
   height: 30px;
   background: var(--border-primary);
+}
+.menu-list {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-primary);
+  border-radius: 40px;
+  width: 310px;
+  height: 506px;
+}
+.menu-item-image {
+  border-radius: 40px;
+  width: 310px;
+  height: 310px;
+}
+.menu-item-descr {
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.descr-text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.descr-title {
+  font-size: 24px;
+  line-height: 125%;
+}
+.descr-info {
+  font-weight: 400;
 }
