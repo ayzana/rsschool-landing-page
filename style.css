@@ -124,6 +124,7 @@ body {
 }
 .title-accent {
   color: var(--text-accent);
+  font-style: italic;
 }
 .hero-text {
   font-weight: 400;
@@ -386,4 +387,9 @@ body {
 .contacts-item a {
   text-decoration: none;
   color: var(--text-inverse);
+}
+
+/* -----------MENU PAGE ----------*/
+.menu-title {
+  text-align: center;
 }
