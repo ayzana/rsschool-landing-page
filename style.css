@@ -250,3 +250,54 @@ body {
   text-align: center;
   flex-shrink: 0;
 }
+/* ------------------- Mobile --------------- */
+.mobile-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mobile-offer {
+  max-width: 630px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.mobile-screens {
+  max-width: 630px;
+}
+.mobile-screens img {
+  width: 100%;
+}
+.mobile-buttons-container {
+  display: flex;
+  gap: 20px;
+}
+.mobile-button {
+  display: flex;
+  gap: 8px;
+  border: 1px solid var(--background-container);
+  background-color: var(--background-modal);
+  border-radius: 100px;
+  padding: 12px 20px;
+  width: 200px;
+  height: 64px;
+}
+.button-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.button-text {
+  text-align: left;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 140%;
+}
+.button-title {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text-primary);
+}
