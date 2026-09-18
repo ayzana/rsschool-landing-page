@@ -21,10 +21,16 @@
   --dark-bg-modal: var(--dark-bg-container);
   --dark-bg-modal-control: var(--dark-bg-page);
 }
+
 :root {
   --font-family: "Inter", sans-serif;
   --second-family: "Manrope", sans-serif;
 }
+
+[data-theme="dark"] {
+  --background-page: #292826;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -127,6 +133,7 @@ li {
 .theme:hover .theme-dark svg path {
   fill: var(--text-inverse);
 }
+
 .menu-link {
   display: flex;
   gap: 8px;
