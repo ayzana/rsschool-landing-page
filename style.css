@@ -310,6 +310,9 @@ li {
   border-radius: 20px;
   cursor: pointer;
 }
+.card:hover .about-image {
+  width: 100%;
+}
 .card-1,
 .card-4 {
   height: 660px;
@@ -324,6 +327,7 @@ li {
   height: auto;
   text-align: center;
   flex-shrink: 0;
+  transition: 0.5s ease-in-out;
 }
 /* ------------------- Mobile --------------- */
 .mobile-section {
@@ -511,6 +515,15 @@ li {
 .tab-item:hover .tab-icon {
   background: var(--text-inverse);
 }
+.tab-item.active {
+  background: var(--background-container);
+  color: var(--text-inverse);
+  pointer-events: none;
+  .tab-icon {
+    background: var(--text-inverse);
+  }
+}
+
 .menu-list {
   display: flex;
   gap: 40px;
@@ -523,18 +536,31 @@ li {
   border-radius: 40px;
   width: 310px;
   height: 506px;
+  cursor: pointer;
 }
-.menu-item-image {
+
+.menu-image {
+  transform: scale(1.1);
+  transition: 0.5s ease-in-out;
+}
+.menu-item:hover .menu-image {
+  transform: scale(1);
+}
+.menu-image-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 40px;
-  width: 310px;
   height: 310px;
+  overflow: hidden;
 }
+
 .menu-item-descr {
-  height: 100%;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex: 1;
 }
 .descr-text {
   display: flex;
