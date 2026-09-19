@@ -311,11 +311,13 @@ li {
 .controls-item {
   width: 40px;
   height: 4px;
-  border: solid 1px var(--border-primary);
+  border-radius: 5px;
+  background-color: var(--border-primary);
 }
 
-.controls-item_active {
-  background-color: var(--background-container);
+.controls-item.active {
+  background-color: var(--border-inverse);
+  border: solid 1px var(--border-inverse);
 }
 
 .cards-container {
@@ -382,14 +384,18 @@ li {
 .mobile-button {
   display: flex;
   gap: 8px;
-  border: 1px solid var(--background-container);
-  background-color: var(--background-modal);
+  border: 1px solid var(--border-inverse);
+  background-color: var(--background-page);
   border-radius: 100px;
   padding: 12px 20px;
   width: 200px;
   height: 64px;
   cursor: pointer;
   transition: 0.5s ease-out;
+  color: var(--text-inverse);
+}
+.mobile-button svg path {
+  fill: var(--text-inverse);
 }
 .mobile-button:hover {
   background: var(--background-container);
@@ -397,7 +403,6 @@ li {
   .button-title {
     color: var(--text-inverse);
   }
-
   svg path {
     fill: var(--text-inverse);
   }
