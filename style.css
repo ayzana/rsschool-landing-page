@@ -28,7 +28,17 @@
 }
 
 [data-theme="dark"] {
-  --background-page: #292826;
+  --background-page: var(--dark-bg-page);
+  --background-container: var(--dark-bg-container);
+  --background-overlay: var(--dark-bg-overlay);
+  --border-primary: var(--dark-border-primary);
+  --border-inverse: var(--dark-border-inverse);
+  --background-modal: var(--dark-bg-modal);
+  --background-modalcontrol: var(--dark-bg-modal-control);
+
+  --text-primary: var(--dark-text-primary);
+  --text-inverse: var(--dark-text-inverse);
+  --text-accent: var(--dark-text-accent);
 }
 
 * {
@@ -144,7 +154,9 @@ li {
     width 0.5s ease-out,
     border-color 0.5s ease-out;
 }
-
+.menu-icon path {
+  stroke: var(--text-primary);
+}
 .menu-link:hover {
   border-bottom: 2px solid var(--text-primary);
   width: 100%;
@@ -189,11 +201,12 @@ li {
   gap: 8px;
   align-items: center;
   border-radius: 100px;
-  padding: 20px 78px;
+  justify-content: center;
+  padding-left: 28px;
   width: 200px;
   height: 64px;
   border: none;
-  background: var(--text-inverse);
+  background: var(--background-page);
   cursor: pointer;
   font-family: var(--font-family);
   font-weight: 600;
@@ -202,22 +215,26 @@ li {
   text-align: center;
   color: var(--text-primary);
   text-decoration: none;
+  transition: 0.5s ease-in-out;
 }
-.hero-button-image {
+.hero-button svg {
   opacity: 0;
   visibility: hidden;
   transition:
     opacity 0.5s ease,
     visibility 0.5s ease;
-  width: 20px;
-  height: 20px;
+}
+.hero-button svg path {
+  stroke: var(--text-primary);
 }
 .hero-button:hover {
-  .hero-button-image {
-    opacity: 1;
-    visibility: visible;
-  }
+  padding: 0;
 }
+.hero-button:hover svg {
+  opacity: 1;
+  visibility: visible;
+}
+
 .section-favorite {
   display: flex;
   flex-direction: column;
@@ -251,8 +268,10 @@ li {
   width: 60px;
   height: 60px;
   transition: 0.5s ease-out;
+  cursor: pointer;
 }
 .slider-button svg path {
+  stroke: var(--border-inverse);
   transition: 0.5s ease-out;
 }
 .slider-button:hover {
@@ -305,6 +324,7 @@ li {
   margin-top: 40px;
 }
 .cards-column {
+  max-width: 660px;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -317,9 +337,7 @@ li {
   border-radius: 20px;
   cursor: pointer;
 }
-.card:hover .about-image {
-  width: 100%;
-}
+
 .card-1,
 .card-4 {
   height: 660px;
@@ -330,11 +348,14 @@ li {
 }
 
 .about-image {
-  width: 110%;
+  transform: scale(1.1);
   height: auto;
   text-align: center;
   flex-shrink: 0;
   transition: 0.5s ease-in-out;
+}
+.card:hover .about-image {
+  transform: scale(1);
 }
 /* ------------------- Mobile --------------- */
 .mobile-section {
@@ -434,7 +455,8 @@ li {
   transition: all 0.5s ease-out;
 }
 .socials-button:hover {
-  background: var(--text-inverse);
+  border: 1px solid var(--background-page);
+  background: var(--background-page);
   svg path {
     stroke: var(--text-primary);
   }
