@@ -7,7 +7,6 @@
   --background-overlay: rgba(64, 63, 61, 0.8);
   --border-primary: #c1b6ad;
   --border-inverse: #665f55;
-  --text-primary: #403f3d;
   --dark-text-primary: #e1d4c9;
   --dark-text-inverse: #e1d4c9;
   --dark-text-accent: #b0907a;
@@ -64,6 +63,7 @@ li {
   list-style: none;
 }
 .container {
+  width: 100%;
   max-width: 1440px;
   background-color: var(--background-page);
   margin: 0 auto;
@@ -174,7 +174,22 @@ li {
   border-bottom: 2px solid var(--text-primary);
   width: 100%;
 }
-
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--background-container);
+  border-radius: 100px;
+  width: 44px;
+  height: 44px;
+}
+.burger-line {
+  width: 18px;
+  height: 2px;
+  background-color: var(--text-primary);
+}
 .main {
   display: flex;
   flex-direction: column;
@@ -184,8 +199,10 @@ li {
 .hero-container {
   border-radius: 40px;
   padding: 100px;
-  max-width: 1360px;
-  background: url("./assets/images/img-hero.png") no-repeat center / cover;
+  background-image: url("./assets/images/img-hero.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .hero-info {
   max-width: 530px;
@@ -339,6 +356,7 @@ li {
   margin-top: 40px;
 }
 .cards-column {
+  width: 100%;
   max-width: 660px;
   display: flex;
   flex-direction: column;
@@ -408,10 +426,15 @@ li {
   color: var(--text-inverse);
 }
 .mobile-button svg path {
-  fill: var(--text-inverse);
+  fill: var(--text-primary);
+}
+.button-text,
+.button-title {
+  color: var(--text-primary);
 }
 .mobile-button:hover {
   background: var(--background-container);
+  border-color: var(--background-container);
   .button-text,
   .button-title {
     color: var(--text-inverse);
@@ -621,4 +644,32 @@ li {
 }
 .descr-info {
   font-weight: 400;
+}
+@media (max-width: 1440px) {
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card-2,
+  .card-3 {
+    display: none;
+  }
+}
+@media (max-width: 1144px) {
+  .nav,
+  .menu-link {
+    display: none;
+  }
+  .burger {
+    display: flex;
+  }
+  .mobile-section {
+    flex-direction: column;
+  }
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 768px) {
 }
