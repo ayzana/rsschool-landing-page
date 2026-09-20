@@ -67,7 +67,7 @@ li {
   max-width: 1440px;
   background-color: var(--background-page);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 20px 40px;
 }
 .header {
   padding: 20px 40px;
@@ -75,6 +75,9 @@ li {
   gap: 40px;
   align-items: center;
   justify-content: space-between;
+}
+.logo-text {
+  fill: var(--text-primary);
 }
 .nav-list {
   display: flex;
@@ -118,7 +121,9 @@ li {
   width: 88px;
   height: 44px;
 }
-
+.theme-dark svg path {
+  fill: var(--text-primary);
+}
 .theme-icon {
   display: flex;
   align-items: center;
@@ -128,20 +133,28 @@ li {
   border-radius: 50%;
   cursor: pointer;
 }
-.theme-light {
-  background: var(--text-accent);
-}
-.theme-dark,
-.theme-dark svg path {
+
+.theme-icon,
+.theme-icon svg path {
   transition:
     background-color 0.5s ease-out,
     fill 0.5s ease-out;
 }
-.theme:hover .theme-dark {
+.theme-dark:hover {
   background-color: var(--dark-border-primary);
+  svg path {
+    fill: var(--text-inverse);
+  }
 }
-.theme:hover .theme-dark svg path {
-  fill: var(--text-inverse);
+.theme-light:hover {
+  background-color: var(--dark-bg-container);
+  svg path {
+    fill: var(--text-inverse);
+  }
+}
+.theme-icon.active {
+  background: var(--text-accent);
+  pointer-events: none;
 }
 
 .menu-link {
@@ -551,6 +564,7 @@ li {
 }
 .tab-item.active {
   background: var(--background-container);
+  border: 1px solid var(--background-container);
   color: var(--text-inverse);
   pointer-events: none;
   .tab-icon {
