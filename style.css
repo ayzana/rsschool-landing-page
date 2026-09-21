@@ -70,11 +70,11 @@ li {
   padding: 20px 40px;
 }
 .header {
-  padding: 20px 40px;
   display: flex;
   gap: 40px;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 .logo-text {
   fill: var(--text-primary);
@@ -194,6 +194,7 @@ li {
   display: flex;
   flex-direction: column;
   gap: 100px;
+  margin-bottom: 100px;
 }
 /* ------------ HERO ---------*/
 .hero-container {
@@ -217,6 +218,7 @@ li {
   font-size: 72px;
   line-height: 105%;
   color: var(--text-inverse);
+  letter-spacing: 2px;
 }
 .title-accent {
   color: var(--text-accent);
@@ -275,6 +277,7 @@ li {
   font-weight: 600;
   font-size: 60px;
   line-height: 125%;
+  letter-spacing: 2px;
 }
 .favorite-title {
   text-align: center;
@@ -373,7 +376,8 @@ li {
 
 .card-1,
 .card-4 {
-  height: 660px;
+  width: 660px;
+  height: 590px;
 }
 .card-2,
 .card-3 {
@@ -652,6 +656,12 @@ li {
     flex-direction: column;
     align-items: center;
   }
+  .cards-column {
+    max-width: 688px;
+  }
+  .card {
+    width: 688px;
+  }
   .card-2,
   .card-3 {
     display: none;
@@ -668,12 +678,23 @@ li {
   .burger {
     display: flex;
   }
+  .hero-container {
+    padding: 100px 60px;
+  }
+  .about-image {
+    width: 100%;
+  }
   .mobile-section {
     flex-direction: column;
+    gap: 100px;
+  }
+  .mobile-offer {
+    max-width: none;
   }
   .footer {
     flex-direction: column;
     align-items: flex-start;
+    padding: 100px 60px;
   }
 }
 @media (max-width: 768px) {
