@@ -100,12 +100,7 @@ li {
     width 0.5s ease-out,
     border-color 0.5s ease-out;
 }
-.nav-item:hover {
-  .nav-link {
-    border-bottom: 2px solid var(--text-primary);
-    width: 100%;
-  }
-}
+
 .header-actions {
   display: flex;
   gap: 24px;
@@ -140,18 +135,7 @@ li {
     background-color 0.5s ease-out,
     fill 0.5s ease-out;
 }
-.theme-dark:hover {
-  background-color: var(--dark-border-primary);
-  svg path {
-    fill: var(--text-inverse);
-  }
-}
-.theme-light:hover {
-  background-color: var(--dark-bg-container);
-  svg path {
-    fill: var(--text-inverse);
-  }
-}
+
 .theme-icon.active {
   background: var(--text-accent);
   pointer-events: none;
@@ -170,10 +154,7 @@ li {
 .menu-icon path {
   stroke: var(--text-primary);
 }
-.menu-link:hover {
-  border-bottom: 2px solid var(--text-primary);
-  width: 100%;
-}
+
 .burger {
   display: none;
   flex-direction: column;
@@ -259,13 +240,6 @@ li {
 .hero-button svg path {
   stroke: var(--text-primary);
 }
-.hero-button:hover {
-  padding: 0;
-}
-.hero-button:hover svg {
-  opacity: 1;
-  visibility: visible;
-}
 
 .section-favorite {
   display: flex;
@@ -289,6 +263,7 @@ li {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 .slider-button {
   display: flex;
@@ -305,12 +280,7 @@ li {
   stroke: var(--border-inverse);
   transition: 0.5s ease-out;
 }
-.slider-button:hover {
-  background: var(--background-container);
-  svg path {
-    stroke: var(--text-inverse);
-  }
-}
+
 .slider-item {
   display: flex;
   flex-direction: column;
@@ -390,9 +360,7 @@ li {
   flex-shrink: 0;
   transition: 0.5s ease-in-out;
 }
-.card:hover .about-image {
-  transform: scale(1);
-}
+
 /* ------------------- Mobile --------------- */
 .mobile-section {
   display: flex;
@@ -434,17 +402,6 @@ li {
 .button-text,
 .button-title {
   color: var(--text-primary);
-}
-.mobile-button:hover {
-  background: var(--background-container);
-  border-color: var(--background-container);
-  .button-text,
-  .button-title {
-    color: var(--text-inverse);
-  }
-  svg path {
-    fill: var(--text-inverse);
-  }
 }
 
 .button-info {
@@ -498,13 +455,6 @@ li {
   height: 60px;
   transition: all 0.5s ease-out;
 }
-.socials-button:hover {
-  border: 1px solid var(--background-page);
-  background: var(--background-page);
-  svg path {
-    stroke: var(--text-primary);
-  }
-}
 
 .contacts-info {
   max-height: 186px;
@@ -531,10 +481,7 @@ li {
     border-color 0.5s ease-out;
   cursor: pointer;
 }
-.contacts-item:hover {
-  width: 100%;
-  border-bottom: 2px solid var(--text-inverse);
-}
+
 .contacts-item a {
   text-decoration: none;
   color: var(--text-inverse);
@@ -581,13 +528,7 @@ li {
   background: var(--border-primary);
   transition: 0.5s ease-out;
 }
-.tab-item:hover {
-  background: var(--background-container);
-  color: var(--text-inverse);
-}
-.tab-item:hover .tab-icon {
-  background: var(--text-inverse);
-}
+
 .tab-item.active {
   background: var(--background-container);
   border: 1px solid var(--background-container);
@@ -619,9 +560,7 @@ li {
   transform: scale(1.1);
   transition: 0.5s ease-in-out;
 }
-.menu-item:hover .menu-image {
-  transform: scale(1);
-}
+
 .menu-image-box {
   display: flex;
   align-items: center;
@@ -700,6 +639,9 @@ li {
   }
 }
 @media (max-width: 700px) {
+  .slider {
+    width: auto;
+  }
   .slider-button {
     display: none;
   }
@@ -736,5 +678,77 @@ li {
   .footer {
     padding: 60px 16px;
     gap: 40px;
+  }
+}
+@media (hover: hover) {
+  .slider-button:hover {
+    background: var(--background-container);
+    svg path {
+      stroke: var(--text-inverse);
+    }
+  }
+  .card:hover .about-image {
+    transform: scale(1);
+  }
+  .nav-item:hover {
+    .nav-link {
+      border-bottom: 2px solid var(--text-primary);
+      width: 100%;
+    }
+  }
+  .theme-dark:hover {
+    background-color: var(--dark-border-primary);
+    svg path {
+      fill: var(--text-inverse);
+    }
+  }
+  .theme-light:hover {
+    background-color: var(--dark-bg-container);
+    svg path {
+      fill: var(--text-inverse);
+    }
+  }
+  .menu-link:hover {
+    border-bottom: 2px solid var(--text-primary);
+    width: 100%;
+  }
+  .hero-button:hover {
+    padding: 0;
+  }
+  .hero-button:hover svg {
+    opacity: 1;
+    visibility: visible;
+  }
+  .mobile-button:hover {
+    background: var(--background-container);
+    border-color: var(--background-container);
+    .button-text,
+    .button-title {
+      color: var(--text-inverse);
+    }
+    svg path {
+      fill: var(--text-inverse);
+    }
+  }
+  .contacts-item:hover {
+    width: 100%;
+    border-bottom: 2px solid var(--text-inverse);
+  }
+  .socials-button:hover {
+    border: 1px solid var(--background-page);
+    background: var(--background-page);
+    svg path {
+      stroke: var(--text-primary);
+    }
+  }
+  .menu-item:hover .menu-image {
+    transform: scale(1);
+  }
+  .tab-item:hover {
+    background: var(--background-container);
+    color: var(--text-inverse);
+  }
+  .tab-item:hover .tab-icon {
+    background: var(--text-inverse);
   }
 }
