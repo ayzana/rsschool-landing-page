@@ -161,7 +161,7 @@ li {
   gap: 8px;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--background-container);
+  border: 1px solid var(--border-inverse);
   border-radius: 100px;
   width: 44px;
   height: 44px;
@@ -594,12 +594,15 @@ li {
   display: none;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--background-container);
+  border: 1px solid var(--border-inverse);
   border-radius: 50%;
   width: 60px;
   height: 60px;
   margin: 0 auto;
   cursor: pointer;
+}
+.menu-button svg path {
+  stroke: var(--border-inverse);
 }
 @media (max-width: 1440px) {
   .cards-container {
