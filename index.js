@@ -5,6 +5,13 @@ const themeLightBTN = document.querySelector(".theme-light");
 
 const currentTheme = localStorage.getItem("theme");
 document.documentElement.setAttribute("data-theme", currentTheme);
+   if (currentTheme === "light"){
+    themeDarkBTN.classList.remove("active");
+    themeLightBTN.classList.add("active");
+   } else {
+    themeDarkBTN.classList.add("active");
+    themeLightBTN.classList.remove("active");
+   }
 
 themeDarkBTN.addEventListener("click", function () {
   const currentTheme = document.documentElement.getAttribute("data-theme");
