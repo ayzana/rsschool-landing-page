@@ -49,6 +49,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
+  background-color: var(--background-page);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -64,8 +65,7 @@ li {
 }
 .container {
   width: 100%;
-  max-width: 1440px;
-  background-color: var(--background-page);
+  max-width: 1440px;  
   margin: 0 auto;
   padding: 20px 40px;
 }
@@ -604,7 +604,7 @@ li {
 .menu-button svg path {
   stroke: var(--border-inverse);
 }
-@media (max-width: 1440px) {
+@media (max-width: 1420px) {
   .cards-container {
     flex-direction: column;
     align-items: center;
@@ -618,14 +618,9 @@ li {
   .card-2,
   .card-3 {
     display: none;
-  }
-  .menu-item:nth-last-child(-n + 2) {
-    display: none;
-  }
-  .menu-button {
-    display: flex;
-  }
+  } 
 }
+
 @media (max-width: 1144px) {
   .nav,
   .menu-link {
@@ -654,6 +649,9 @@ li {
 @media (max-width: 768px) {
   .menu-item:nth-last-child(-n + 4) {
     display: none;
+  }
+   .menu-button {
+    display: flex;
   }
 }
 @media (max-width: 700px) {
