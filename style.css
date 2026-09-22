@@ -103,7 +103,7 @@ li {
 
 .header-actions {
   display: flex;
-  gap: 24px;
+  gap: 16px;
   align-items: center;
 }
 .theme {
@@ -142,6 +142,7 @@ li {
 }
 
 .menu-link {
+  padding: 5px;
   display: flex;
   gap: 8px;
   text-decoration: none;
@@ -590,6 +591,9 @@ li {
 .descr-info {
   font-weight: 400;
 }
+.price {
+  font-size: 24px;
+}
 .menu-button {
   display: none;
   align-items: center;
@@ -646,7 +650,7 @@ li {
     padding: 100px 60px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .menu-item:nth-last-child(-n + 4) {
     display: none;
   }
