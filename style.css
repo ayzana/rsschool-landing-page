@@ -589,6 +589,17 @@ li {
 .descr-info {
   font-weight: 400;
 }
+.menu-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--background-container);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  cursor: pointer;
+}
 @media (max-width: 1440px) {
   .cards-container {
     flex-direction: column;
@@ -606,6 +617,9 @@ li {
   }
   .menu-item:nth-last-child(-n + 2) {
     display: none;
+  }
+  .menu-button {
+    display: flex;
   }
 }
 @media (max-width: 1144px) {
