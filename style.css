@@ -679,6 +679,9 @@ li {
   .section-title {
     font-size: 32px;
   }
+  .menu-title {
+    font-size: 32px;
+  }
   .slider-item {
     max-width: 348px;
   }
