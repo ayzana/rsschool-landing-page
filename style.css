@@ -502,6 +502,7 @@ li {
 }
 .menu-title {
   text-align: center;
+  max-width: 780px;
 }
 .menu-tabs {
   display: flex;
