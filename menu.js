@@ -80,21 +80,12 @@ const filterMenuItems = (activeTab) => {
 
 /*Modal*/
 const modalWrapper = document.querySelector(".modal-overlay");
-const modalContainer = document.querySelector(".modal-wrapper");
-
-modalContainer.addEventListener("click", (event) => {
-  event._isClickWithInMenu = true;
-});
-
-const modalClose = () => {
-  modalWrapper.classList.add("hidden");
-  document.body.style.overflow = "auto";
-};
 
 modalWrapper.addEventListener("click", (event) => {
   if (event._isClickWithInMenu) return;
   modalClose();
 });
+
 const createModal = (item) => {
   const el = document.createElement("div");
   el.className = "modal";
@@ -129,11 +120,24 @@ const createModal = (item) => {
   el.append(imageBox, itemDescr);
   return el;
 };
+
 const modalShow = (item) => {
-  modalContainer.append(createModal(item));
+  modalWrapper.append(createModal(item));
+  const modal = document.querySelector(".modal");
+  modal.addEventListener("click", (event) => {
+    event._isClickWithInMenu = true;
+  });
   modalWrapper.classList.remove("hidden");
   document.body.style.overflow = "hidden";
 };
+
+const modalClose = () => {
+  modalWrapper.classList.add("hidden");
+  const modal = document.querySelector(".modal");
+  modal.remove();
+  document.body.style.overflow = "auto";
+};
+
 const menuItemsClickHandler = () => {
   document.querySelector(".menu-list").addEventListener("click", (e) => {
     if (e.target.closest(".menu-item")) {

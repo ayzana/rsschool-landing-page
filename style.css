@@ -667,7 +667,7 @@ li {
   background: var(--background-overlay);
   z-index: 11;
 }
-.modal-wrapper {
+.modal {
   position: relative;
   display: flex;
   border-radius: 40px;
@@ -676,9 +676,7 @@ li {
   width: 100%;
   background: var(--background-modal);
 }
-.modal {
-  display: flex;
-}
+
 .hidden {
   display: none;
 }
