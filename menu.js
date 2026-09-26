@@ -1,10 +1,9 @@
 "use strict";
+import data from "./data/products.json" with { type: "json" };
 
 window.onload = function () {
-  console.log("start");
+  tabsClickHandler();
 };
-
-import data from "./data/products.json" with { type: "json" };
 
 function createMenuItem(item) {
   const el = document.createElement("li");
@@ -45,3 +44,24 @@ function createMenuItem(item) {
 data.forEach((el) => {
   document.querySelector(".menu-list").appendChild(createMenuItem(el));
 });
+
+const tabsClickHandler = () => {
+  document.querySelector(".menu-tabs").addEventListener("click", (e) => {
+    if (e.target.closest(".tab-item")) {
+      let activeTab = e.target.closest(".tab-item");
+      removesActiveTabs();
+      selectTab(activeTab);
+    }
+  });
+};
+
+const removesActiveTabs = () => {
+  let tabs = document.querySelectorAll(".tab-item");
+  tabs.forEach((tab) => {
+    tab.classList.remove("active");
+  });
+};
+
+const selectTab = (activeTab) => {
+  activeTab.classList.add("active");
+};

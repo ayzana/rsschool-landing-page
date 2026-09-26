@@ -560,6 +560,7 @@ li {
   padding: 8px 16px 8px 8px;
   cursor: pointer;
   transition: 0.5s ease-out;
+  pointer-events: auto;
 }
 
 .tab-icon {
@@ -574,10 +575,10 @@ li {
 }
 
 .tab-item.active {
+  pointer-events: none;
   background: var(--background-container);
   border: 1px solid var(--background-container);
   color: var(--text-inverse);
-  pointer-events: none;
   .tab-icon {
     background: var(--text-inverse);
   }
