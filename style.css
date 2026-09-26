@@ -48,6 +48,7 @@
 html {
   scroll-behavior: smooth;
 }
+
 body {
   background-color: var(--background-page);
   min-height: 100vh;
@@ -560,6 +561,7 @@ li {
   padding: 8px 16px 8px 8px;
   cursor: pointer;
   transition: 0.5s ease-out;
+  text-transform: capitalize;
   pointer-events: auto;
 }
 
@@ -650,6 +652,10 @@ li {
 }
 .menu-button svg path {
   stroke: var(--border-inverse);
+}
+
+.hidden {
+  display: none;
 }
 @media (max-width: 1420px) {
   .cards-container {

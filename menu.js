@@ -51,6 +51,7 @@ const tabsClickHandler = () => {
       let activeTab = e.target.closest(".tab-item");
       removesActiveTabs();
       selectTab(activeTab);
+      filterMenuItems(activeTab.textContent);
     }
   });
 };
@@ -64,4 +65,14 @@ const removesActiveTabs = () => {
 
 const selectTab = (activeTab) => {
   activeTab.classList.add("active");
+};
+
+const filterMenuItems = (activeTab) => {
+  let menuItems = document.querySelectorAll(".menu-item");
+  menuItems.forEach((item) => {
+    item.classList.add("hidden");
+
+    if (item.dataset.category == activeTab.trim())
+      item.classList.remove("hidden");
+  });
 };
