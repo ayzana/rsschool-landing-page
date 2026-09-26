@@ -138,8 +138,8 @@ const menuItemsClickHandler = () => {
   document.querySelector(".menu-list").addEventListener("click", (e) => {
     if (e.target.closest(".menu-item")) {
       let activeItem = e.target.closest(".menu-item");
-      console.log(activeItem.dataset.id);
-      modalShow(activeItem);
+      const index = data.findIndex((item) => item.id === activeItem.dataset.id);
+      modalShow(data[index]);
     }
   });
 };
