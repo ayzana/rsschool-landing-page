@@ -676,7 +676,12 @@ li {
   width: 100%;
   background: var(--background-modal);
 }
-
+.button-close {
+  border: 1px solid var(--background-container);
+  border-radius: 100px;
+  padding: 10px 78px;
+  text-align: center;
+}
 .hidden {
   display: none;
 }

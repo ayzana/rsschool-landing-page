@@ -189,7 +189,39 @@ const createModal = (item) => {
   price.className = "price";
   price.textContent = "$" + item.price;
   modalTotal.append(totalTitle, price);
-  itemDescr.append(descrText, modalSize, modalAdditives, modalTotal);
+  const alert = document.createElement("div");
+  alert.className = "modal-alert";
+  const alertIcon = document.createElement("div");
+  alertIcon.className = "alert-icon";
+  alertIcon.innerHTML = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0_147811_7961)">
+    <path d="M8 7.66663V11" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M8 5.00667L8.00667 4.99926" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M7.99967 14.6667C11.6816 14.6667 14.6663 11.6819 14.6663 8.00004C14.6663 4.31814 11.6816 1.33337 7.99967 1.33337C4.31778 1.33337 1.33301 4.31814 1.33301 8.00004C1.33301 11.6819 4.31778 14.6667 7.99967 14.6667Z" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+  <defs>
+    <clipPath id="clip0_147811_7961">
+      <rect width="16" height="16" fill="white" />
+    </clipPath>
+  </defs>
+</svg>`;
+  const alertText = document.createElement("p");
+  alertText.className = "alert-text";
+  alertText.textContent =
+    "The cost is not final. Download our mobile app to see the final price and place your order. Earn loyalty points and enjoy your favorite coffee with up to 20% discount.";
+  alert.append(alertIcon, alertText);
+  const buttonClose = document.createElement("div");
+  buttonClose.className = "button-close";
+  buttonClose.textContent = "Close";
+  itemDescr.append(
+    descrText,
+    modalSize,
+    modalAdditives,
+    modalTotal,
+    alert,
+    buttonClose,
+  );
+
   el.append(imageBox, itemDescr);
   return el;
 };
