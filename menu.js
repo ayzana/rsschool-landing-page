@@ -86,6 +86,23 @@ modalWrapper.addEventListener("click", (event) => {
   modalClose();
 });
 
+const createTabs = (key, value) => {
+  console.log(key, value.size);
+  const button = document.createElement("div");
+  button.className = "tab-item";
+
+  const buttonIcon = document.createElement("div");
+  buttonIcon.className = "tab-icon";
+  buttonIcon.textContent = key;
+
+  const buttonText = document.createElement("p");
+  buttonText.className = "tab-text";
+  buttonText.textContent = value.size;
+  button.append(buttonIcon, buttonText);
+
+  return button;
+};
+
 const createModal = (item) => {
   const el = document.createElement("div");
   el.className = "modal";
@@ -112,11 +129,28 @@ const createModal = (item) => {
   descrInfo.textContent = item.description;
   descrText.append(title, descrInfo);
 
+  const modalSize = document.createElement("div");
+  modalSize.className = "size";
+
+  const modalTabsContainer = document.createElement("div");
+  modalTabsContainer.className = "menu-tabs modal-tabs";
+  modalSize.append(modalTabsContainer);
+
+  Object.entries(item.sizes).forEach(([key, size]) => {
+    modalTabsContainer.appendChild(createTabs(key, size));
+  });
+
+  const modalAdditives = document.createElement("div");
+  modalAdditives.className = "additives";
+  const modalTotal = document.createElement("div");
+  modalTotal.className = "total";
+  const totalTitle = document.createElement("span");
+  totalTitle.textContent = "Total:";
   const price = document.createElement("p");
   price.className = "price";
   price.textContent = "$" + item.price;
-  itemDescr.append(descrText, price);
-
+  modalTotal.append(totalTitle, price);
+  itemDescr.append(descrText, modalSize, modalAdditives, modalTotal);
   el.append(imageBox, itemDescr);
   return el;
 };
@@ -142,8 +176,8 @@ const menuItemsClickHandler = () => {
   document.querySelector(".menu-list").addEventListener("click", (e) => {
     if (e.target.closest(".menu-item")) {
       let activeItem = e.target.closest(".menu-item");
-      const index = data.findIndex((item) => item.id === activeItem.dataset.id);
-      modalShow(data[index]);
+
+      modalShow(data[activeItem.dataset.id]);
     }
   });
 };
