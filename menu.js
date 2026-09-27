@@ -103,6 +103,38 @@ const createTabs = (key, value) => {
   return button;
 };
 
+const createSizeTabs = (key, value) => {
+  const button = document.createElement("div");
+  button.className = "tab-item";
+
+  const buttonIcon = document.createElement("div");
+  buttonIcon.className = "tab-icon";
+  buttonIcon.textContent = key;
+
+  const buttonText = document.createElement("p");
+  buttonText.className = "tab-text";
+  buttonText.textContent = value.size;
+  button.append(buttonIcon, buttonText);
+
+  return button;
+};
+const createAddTabs = (key, value) => {
+  console.log(key, value.name);
+  const button = document.createElement("div");
+  button.className = "tab-item";
+
+  const buttonIcon = document.createElement("div");
+  buttonIcon.className = "tab-icon";
+  buttonIcon.textContent = Number(key) + 1;
+
+  const buttonText = document.createElement("p");
+  buttonText.className = "tab-text";
+  buttonText.textContent = value.name;
+  button.append(buttonIcon, buttonText);
+
+  return button;
+};
+
 const createModal = (item) => {
   const el = document.createElement("div");
   el.className = "modal";
@@ -124,6 +156,7 @@ const createModal = (item) => {
   const title = document.createElement("p");
   title.className = "descr-title";
   title.textContent = item.name;
+
   const descrInfo = document.createElement("p");
   descrInfo.className = "descr-info";
   descrInfo.textContent = item.description;
@@ -132,16 +165,22 @@ const createModal = (item) => {
   const modalSize = document.createElement("div");
   modalSize.className = "size";
 
-  const modalTabsContainer = document.createElement("div");
-  modalTabsContainer.className = "menu-tabs modal-tabs";
-  modalSize.append(modalTabsContainer);
+  const sizeTabsContainer = document.createElement("div");
+  sizeTabsContainer.className = "menu-tabs modal-tabs";
+  modalSize.append(sizeTabsContainer);
 
-  Object.entries(item.sizes).forEach(([key, size]) => {
-    modalTabsContainer.appendChild(createTabs(key, size));
+  Object.entries(item.sizes).forEach(([key, value]) => {
+    sizeTabsContainer.appendChild(createSizeTabs(key, value));
   });
 
   const modalAdditives = document.createElement("div");
   modalAdditives.className = "additives";
+  const addTabsContainer = document.createElement("div");
+  addTabsContainer.className = "menu-tabs modal-tabs";
+  modalAdditives.append(addTabsContainer);
+  Object.entries(item.additives).forEach(([key, value]) => {
+    addTabsContainer.appendChild(createAddTabs(key, value));
+  });
   const modalTotal = document.createElement("div");
   modalTotal.className = "total";
   const totalTitle = document.createElement("span");
