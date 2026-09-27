@@ -4,6 +4,7 @@ import data from "./data/products.json" with { type: "json" };
 window.onload = function () {
   tabsClickHandler();
   menuItemsClickHandler();
+  filterMenuItems("coffee");
 };
 
 function createMenuItem(item) {
@@ -162,7 +163,7 @@ const createModal = (item) => {
   const addTitle = document.createElement("p");
   addTitle.textContent = "Additives";
   const addTabsContainer = document.createElement("div");
-  addTabsContainer.className = "menu-tabs modal-tabs";
+  addTabsContainer.className = "menu-tabs additives-tabs";
   modalAdditives.append(addTitle, addTabsContainer);
   Object.entries(item.additives).forEach(([key, value]) => {
     addTabsContainer.appendChild(createAddTabs(key, value));
@@ -219,13 +220,23 @@ const createModal = (item) => {
       removesActiveTabs();
       selectTab(activeTab);
       const size = activeTab.dataset.id;
-
       let countPrice = Number(item.price);
       countPrice = countPrice + Number(item.sizes[size]["add-price"]);
 
       price.textContent = "$" + countPrice.toFixed(2);
     }
   });
+  modalAdditives
+    .querySelector(".additives-tabs")
+    .addEventListener("click", (e) => {
+      if (e.target.closest(".tab-item")) {
+        let activeTab = e.target.closest(".tab-item");
+        modalAdditives.querySelectorAll(".tab-item").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+        selectTab(activeTab);
+      }
+    });
   return el;
 };
 
