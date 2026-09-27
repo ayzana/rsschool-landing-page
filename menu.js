@@ -86,27 +86,10 @@ modalWrapper.addEventListener("click", (event) => {
   modalClose();
 });
 
-const createTabs = (key, value) => {
-  console.log(key, value.size);
-  const button = document.createElement("div");
-  button.className = "tab-item";
-
-  const buttonIcon = document.createElement("div");
-  buttonIcon.className = "tab-icon";
-  buttonIcon.textContent = key;
-
-  const buttonText = document.createElement("p");
-  buttonText.className = "tab-text";
-  buttonText.textContent = value.size;
-  button.append(buttonIcon, buttonText);
-
-  return button;
-};
-
 const createSizeTabs = (key, value) => {
   const button = document.createElement("div");
   button.className = "tab-item";
-
+  button.dataset.id = key;
   const buttonIcon = document.createElement("div");
   buttonIcon.className = "tab-icon";
   buttonIcon.textContent = key;
@@ -119,7 +102,6 @@ const createSizeTabs = (key, value) => {
   return button;
 };
 const createAddTabs = (key, value) => {
-  console.log(key, value.name);
   const button = document.createElement("div");
   button.className = "tab-item";
 
@@ -140,7 +122,7 @@ const createModal = (item) => {
   el.className = "modal";
 
   const imageBox = document.createElement("div");
-  imageBox.className = "menu-image-box";
+  imageBox.className = "modal-image-box";
 
   const menuImage = document.createElement("img");
   menuImage.className = "menu-image";
@@ -149,7 +131,7 @@ const createModal = (item) => {
   imageBox.append(menuImage);
 
   const itemDescr = document.createElement("div");
-  itemDescr.className = "menu-item-descr";
+  itemDescr.className = "modal-item-descr";
 
   const descrText = document.createElement("div");
   descrText.className = "descr-text";
@@ -164,20 +146,24 @@ const createModal = (item) => {
 
   const modalSize = document.createElement("div");
   modalSize.className = "size";
-
+  const sizeTitle = document.createElement("p");
+  sizeTitle.textContent = "Size";
   const sizeTabsContainer = document.createElement("div");
-  sizeTabsContainer.className = "menu-tabs modal-tabs";
-  modalSize.append(sizeTabsContainer);
+  sizeTabsContainer.className = "menu-tabs";
+  modalSize.append(sizeTitle, sizeTabsContainer);
 
   Object.entries(item.sizes).forEach(([key, value]) => {
     sizeTabsContainer.appendChild(createSizeTabs(key, value));
   });
+  sizeTabsContainer.querySelector(".tab-item").classList.add("active");
 
   const modalAdditives = document.createElement("div");
   modalAdditives.className = "additives";
+  const addTitle = document.createElement("p");
+  addTitle.textContent = "Additives";
   const addTabsContainer = document.createElement("div");
   addTabsContainer.className = "menu-tabs modal-tabs";
-  modalAdditives.append(addTabsContainer);
+  modalAdditives.append(addTitle, addTabsContainer);
   Object.entries(item.additives).forEach(([key, value]) => {
     addTabsContainer.appendChild(createAddTabs(key, value));
   });
@@ -213,6 +199,9 @@ const createModal = (item) => {
   const buttonClose = document.createElement("div");
   buttonClose.className = "button-close";
   buttonClose.textContent = "Close";
+  buttonClose.addEventListener("click", () => {
+    modalClose();
+  });
   itemDescr.append(
     descrText,
     modalSize,
@@ -223,6 +212,20 @@ const createModal = (item) => {
   );
 
   el.append(imageBox, itemDescr);
+
+  modalSize.querySelector(".menu-tabs").addEventListener("click", (e) => {
+    if (e.target.closest(".tab-item")) {
+      let activeTab = e.target.closest(".tab-item");
+      removesActiveTabs();
+      selectTab(activeTab);
+      const size = activeTab.dataset.id;
+
+      let countPrice = Number(item.price);
+      countPrice = countPrice + Number(item.sizes[size]["add-price"]);
+
+      price.textContent = "$" + countPrice.toFixed(2);
+    }
+  });
   return el;
 };
 

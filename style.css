@@ -583,6 +583,7 @@ li {
   color: var(--text-inverse);
   .tab-icon {
     background: var(--text-inverse);
+    color: var(--text-primary);
   }
 }
 
@@ -670,17 +671,49 @@ li {
 .modal {
   position: relative;
   display: flex;
+  gap: 20px;
   border-radius: 40px;
   padding: 16px;
   max-width: 800px;
   width: 100%;
   background: var(--background-modal);
 }
+.modal-image-box {
+  display: flex;
+  flex-shrink: 0;
+  border-radius: 40px;
+  width: 310px;
+  height: 310px;
+  overflow: hidden;
+}
+.modal-item-descr {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.size,
+.additives {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24px;
+}
+.modal-alert {
+  display: flex;
+  gap: 8px;
+  font-size: 10px;
+  line-height: 140%;
+}
 .button-close {
   border: 1px solid var(--background-container);
   border-radius: 100px;
   padding: 10px 78px;
   text-align: center;
+  cursor: pointer;
 }
 .hidden {
   display: none;
@@ -854,5 +887,6 @@ li {
   }
   .tab-item:hover .tab-icon {
     background: var(--text-inverse);
+    color: var(--text-primary);
   }
 }
