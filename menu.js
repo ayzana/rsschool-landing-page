@@ -105,7 +105,7 @@ const createSizeTabs = (key, value) => {
 const createAddTabs = (key, value) => {
   const button = document.createElement("div");
   button.className = "tab-item";
-
+  button.dataset.id = Number(key);
   const buttonIcon = document.createElement("div");
   buttonIcon.className = "tab-icon";
   buttonIcon.textContent = Number(key) + 1;
@@ -213,14 +213,14 @@ const createModal = (item) => {
   );
 
   el.append(imageBox, itemDescr);
-
+  let countPrice = Number(item.price);
   modalSize.querySelector(".menu-tabs").addEventListener("click", (e) => {
     if (e.target.closest(".tab-item")) {
       let activeTab = e.target.closest(".tab-item");
       removesActiveTabs();
       selectTab(activeTab);
       const size = activeTab.dataset.id;
-      let countPrice = Number(item.price);
+
       countPrice = countPrice + Number(item.sizes[size]["add-price"]);
 
       price.textContent = "$" + countPrice.toFixed(2);
@@ -235,6 +235,10 @@ const createModal = (item) => {
           tab.classList.remove("active");
         });
         selectTab(activeTab);
+        const additive = activeTab.dataset.id;
+        console.log(item.additives[additive]["add-price"]);
+        countPrice = countPrice + Number(item.additives[additive]["add-price"]);
+        price.textContent = "$" + countPrice.toFixed(2);
       }
     });
   return el;
