@@ -60,6 +60,12 @@ const tabsClickHandler = () => {
       selectTab(activeTab);
 
       generateItems(activeTab.textContent.trim());
+      const menuItems = document.querySelectorAll(".menu-item");
+      if (menuItems.length > 4) {
+        menuButton.style.display = "flex";
+      } else {
+        menuButton.style.display = "none";
+      }
     }
   });
 };
@@ -280,4 +286,11 @@ const menuItemsClickHandler = () => {
 /*-----Menu button*/
 const menuButton = document.querySelector(".menu-button");
 
-menuButton.addEventListener("click", () => {});
+menuButton.addEventListener("click", () => {
+  const menuItems = document.querySelectorAll(".menu-item");
+  console.log(menuItems);
+  menuItems.forEach((item) => {
+    item.style.display = "flex";
+  });
+  menuButton.style.display = "none";
+});
