@@ -779,13 +779,14 @@ li {
   }
 }
 @media (max-width: 800px) {
-  .menu-item:nth-last-child(-n + 4) {
+  .menu-item:nth-child(n + 5) {
     display: none;
   }
   .menu-button {
     display: flex;
   }
 }
+
 @media (max-width: 700px) {
   .slider {
     width: auto;

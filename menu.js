@@ -4,9 +4,10 @@ import data from "./data/products.json" with { type: "json" };
 window.onload = function () {
   tabsClickHandler();
   menuItemsClickHandler();
-  filterMenuItems("coffee");
+  generateItems("coffee");
+  // filterMenuItems("coffee");
 };
-
+const menuList = document.querySelector(".menu-list");
 function createMenuItem(item) {
   const el = document.createElement("li");
   el.className = "menu-item";
@@ -43,17 +44,22 @@ function createMenuItem(item) {
   return el;
 }
 
-data.forEach((el) => {
-  document.querySelector(".menu-list").appendChild(createMenuItem(el));
-});
-
+const generateItems = (category) => {
+  menuList.innerHTML = "";
+  data
+    .filter((item) => item.category === category)
+    .forEach((el) => {
+      menuList.appendChild(createMenuItem(el));
+    });
+};
 const tabsClickHandler = () => {
   document.querySelector(".menu-tabs").addEventListener("click", (e) => {
     if (e.target.closest(".tab-item")) {
       let activeTab = e.target.closest(".tab-item");
       removesActiveTabs();
       selectTab(activeTab);
-      filterMenuItems(activeTab.textContent);
+
+      generateItems(activeTab.textContent.trim());
     }
   });
 };
@@ -69,15 +75,15 @@ const selectTab = (activeTab) => {
   activeTab.classList.add("active");
 };
 
-const filterMenuItems = (activeTab) => {
-  let menuItems = document.querySelectorAll(".menu-item");
-  menuItems.forEach((item) => {
-    item.classList.add("hidden");
+// const filterMenuItems = (activeTab) => {
+//   let menuItems = document.querySelectorAll(".menu-item");
+//   menuItems.forEach((item) => {
+//     item.classList.add("hidden");
 
-    if (item.dataset.category == activeTab.trim())
-      item.classList.remove("hidden");
-  });
-};
+//     if (item.dataset.category == activeTab.trim())
+//       item.classList.remove("hidden");
+//   });
+// };
 
 /*Modal*/
 const modalWrapper = document.querySelector(".modal-overlay");
@@ -270,3 +276,8 @@ const menuItemsClickHandler = () => {
     }
   });
 };
+
+/*-----Menu button*/
+const menuButton = document.querySelector(".menu-button");
+
+menuButton.addEventListener("click", () => {});
