@@ -219,7 +219,10 @@ const createModal = (item) => {
   modalSize.querySelector(".menu-tabs").addEventListener("click", (e) => {
     if (e.target.closest(".tab-item")) {
       let activeTab = e.target.closest(".tab-item");
-      removesActiveTabs();
+      let tabs = modalSize.querySelectorAll(".tab-item");
+      tabs.forEach((tab) => {
+        tab.classList.remove("active");
+      });
       selectTab(activeTab);
       const size = activeTab.dataset.id;
 
