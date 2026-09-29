@@ -590,8 +590,8 @@ li {
   transition: 0.5s ease-out;
 }
 
-.tab-item.active {
-  pointer-events: none;
+.tab-item.active,
+.tab-item.selected {
   background: var(--background-container);
   border: 1px solid var(--background-container);
   color: var(--text-inverse);
@@ -600,7 +600,9 @@ li {
     color: var(--text-primary);
   }
 }
-
+.tab-item.active {
+  pointer-events: none;
+}
 .menu-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, 310px);

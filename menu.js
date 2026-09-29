@@ -81,16 +81,6 @@ const selectTab = (activeTab) => {
   activeTab.classList.add("active");
 };
 
-// const filterMenuItems = (activeTab) => {
-//   let menuItems = document.querySelectorAll(".menu-item");
-//   menuItems.forEach((item) => {
-//     item.classList.add("hidden");
-
-//     if (item.dataset.category == activeTab.trim())
-//       item.classList.remove("hidden");
-//   });
-// };
-
 /*Modal*/
 const modalWrapper = document.querySelector(".modal-overlay");
 
@@ -233,9 +223,11 @@ const createModal = (item) => {
       selectTab(activeTab);
       const size = activeTab.dataset.id;
 
-      countPrice = countPrice + Number(item.sizes[size]["add-price"]);
+      countPrice = Number(item.price) + Number(item.sizes[size]["add-price"]);
 
       price.textContent = "$" + countPrice.toFixed(2);
+      const additivesTabs = modalAdditives.querySelectorAll(".tab-item");
+      additivesTabs.forEach((tab) => tab.classList.remove("selected"));
     }
   });
   modalAdditives
@@ -243,13 +235,17 @@ const createModal = (item) => {
     .addEventListener("click", (e) => {
       if (e.target.closest(".tab-item")) {
         let activeTab = e.target.closest(".tab-item");
-        modalAdditives.querySelectorAll(".tab-item").forEach((tab) => {
-          tab.classList.remove("active");
-        });
-        selectTab(activeTab);
+
+        activeTab.classList.toggle("selected");
         const additive = activeTab.dataset.id;
-        console.log(item.additives[additive]["add-price"]);
-        countPrice = countPrice + Number(item.additives[additive]["add-price"]);
+        if (activeTab.classList.contains("selected")) {
+          countPrice =
+            countPrice + Number(item.additives[additive]["add-price"]);
+        } else {
+          countPrice =
+            countPrice - Number(item.additives[additive]["add-price"]);
+        }
+
         price.textContent = "$" + countPrice.toFixed(2);
       }
     });
