@@ -19,12 +19,44 @@ function updateSlider() {
     el.classList.toggle("active", index === currentIndex);
   });
 }
-
-nextBTN.addEventListener("click", () => {
+const nextSlide = () => {
   currentIndex = (currentIndex + 1) % slidersCount;
   updateSlider();
-});
-prevBTN.addEventListener("click", () => {
+};
+const prevSlide = () => {
   currentIndex = (currentIndex - 1 + slidersCount) % slidersCount;
   updateSlider();
+};
+
+nextBTN.addEventListener("click", () => {
+  nextSlide();
+});
+prevBTN.addEventListener("click", () => {
+  nextSlide();
+});
+
+let startX = 0;
+let currentX = 0;
+let diffX = 0;
+
+slider.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
+
+slider.addEventListener("touchmove", (e) => {
+  currentX = e.touches[0].clientX;
+  diffX = startX - currentX;
+});
+
+slider.addEventListener("touchend", () => {
+  const threshold = 50;
+
+  if (diffX > threshold) {
+    nextSlide();
+  } else if (diffX < -threshold) {
+    prevSlide();
+  }
+
+  startX = 0;
+  diffX = 0;
 });
