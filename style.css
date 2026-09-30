@@ -756,10 +756,11 @@ li {
   padding: 12px 0;
 }
 .button-close {
-  border: 1px solid var(--background-container);
+  border: 1px solid var(--border-inverse);
   border-radius: 100px;
   padding: 10px 78px;
   text-align: center;
+  transition: all 0.5s;
   cursor: pointer;
 }
 .hidden {
@@ -959,5 +960,10 @@ li {
       background: var(--background-icon);
       color: var(--text-primary);
     }
+  }
+  .button-close:hover {
+    background-color: var(--background-modalcontrol);
+    border-color: var(--background-modalcontrol);
+    color: var(--text-inverse);
   }
 }
