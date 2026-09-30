@@ -91,7 +91,7 @@ modalWrapper.addEventListener("click", (event) => {
 
 const createSizeTabs = (key, value) => {
   const button = document.createElement("div");
-  button.className = "tab-item";
+  button.className = "tab-item modal-tab";
   button.dataset.id = key;
   const buttonIcon = document.createElement("div");
   buttonIcon.className = "tab-icon";
@@ -106,7 +106,7 @@ const createSizeTabs = (key, value) => {
 };
 const createAddTabs = (key, value) => {
   const button = document.createElement("div");
-  button.className = "tab-item";
+  button.className = "tab-item modal-tab";
   button.dataset.id = Number(key);
   const buttonIcon = document.createElement("div");
   buttonIcon.className = "tab-icon";

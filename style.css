@@ -19,6 +19,8 @@
   --background-modalcontrol: #665f55;
   --dark-bg-modal: var(--dark-bg-container);
   --dark-bg-modal-control: var(--dark-bg-page);
+  --background-icon: #e1d4c9;
+  --dark-bg-icon: #403f3d;
 }
 
 :root {
@@ -34,7 +36,7 @@
   --border-inverse: var(--dark-border-inverse);
   --background-modal: var(--dark-bg-modal);
   --background-modalcontrol: var(--dark-bg-modal-control);
-
+  --background-icon: var(--dark-bg-icon);
   --text-primary: var(--dark-text-primary);
   --text-inverse: var(--dark-text-inverse);
   --text-accent: var(--dark-text-accent);
@@ -727,6 +729,20 @@ li {
   gap: 8px;
   max-width: 400px;
 }
+
+.modal-tab.active,
+.modal-tab.selected {
+  background: var(--background-modalcontrol);
+  border: 1px solid var(--background-modalcontrol);
+  color: var(--text-inverse);
+  .tab-icon {
+    background: var(--background-icon);
+    color: var(--text-primary);
+  }
+}
+.size-tabs .tab-text {
+  text-transform: lowercase;
+}
 .total {
   display: flex;
   justify-content: space-between;
@@ -804,7 +820,7 @@ li {
     display: flex;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .nav,
   .menu-link {
     display: none;
@@ -817,9 +833,6 @@ li {
   }
 }
 @media (max-width: 700px) {
-  .slider {
-    width: auto;
-  }
   .slider-button {
     display: none;
   }
@@ -843,15 +856,16 @@ li {
   .hero-title {
     font-size: 42px;
   }
+  .slider-image {
+    width: 348px;
+  }
   .section-title {
     font-size: 32px;
   }
   .menu-title {
     font-size: 32px;
   }
-  .slider-item {
-    max-width: 348px;
-  }
+
   .mobile-section {
     gap: 50px;
   }
@@ -935,5 +949,15 @@ li {
   .tab-item:hover .tab-icon {
     background: var(--text-inverse);
     color: var(--text-primary);
+  }
+
+  .modal-tab:hover {
+    background: var(--background-modalcontrol);
+    border: 1px solid var(--background-modalcontrol);
+    color: var(--text-inverse);
+    .tab-icon {
+      background: var(--background-icon);
+      color: var(--text-primary);
+    }
   }
 }
