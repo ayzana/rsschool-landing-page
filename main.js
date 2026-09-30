@@ -56,3 +56,14 @@ burger.addEventListener("click", toggleBurgerMenu);
 burgerItems.forEach(function (item) {
   item.addEventListener("click", toggleBurgerMenu);
 });
+
+document.addEventListener("keydown", () => {
+  burger.classList.remove("active");
+  burgerMenu.classList.remove("active");
+
+  if (burger.classList.contains("active")) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+  }
+});

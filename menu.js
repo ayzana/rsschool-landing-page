@@ -282,6 +282,11 @@ const menuItemsClickHandler = () => {
   });
 };
 
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    modalClose();
+  }
+});
 /*-----Menu button*/
 const menuButton = document.querySelector(".menu-button");
 
