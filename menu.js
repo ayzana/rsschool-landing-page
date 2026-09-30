@@ -51,6 +51,12 @@ const generateItems = (category) => {
     .forEach((el) => {
       menuList.appendChild(createMenuItem(el));
     });
+  const menuItems = document.querySelectorAll(".menu-item");
+  if ((menuItems.length > 4) & (window.innerWidth < 801)) {
+    menuButton.style.display = "flex";
+  } else {
+    menuButton.style.display = "none";
+  }
 };
 const tabsClickHandler = () => {
   document.querySelector(".menu-tabs").addEventListener("click", (e) => {
@@ -61,7 +67,7 @@ const tabsClickHandler = () => {
 
       generateItems(activeTab.textContent.trim());
       const menuItems = document.querySelectorAll(".menu-item");
-      if (menuItems.length > 4) {
+      if ((menuItems.length > 4) & (window.innerWidth < 800)) {
         menuButton.style.display = "flex";
       } else {
         menuButton.style.display = "none";
