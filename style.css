@@ -676,6 +676,7 @@ li {
   margin: 0 auto;
   cursor: pointer;
 }
+
 .menu-button svg path {
   stroke: var(--border-inverse);
 }
@@ -813,14 +814,7 @@ li {
     font-size: 16px;
   }
 }
-@media (max-width: 800px) {
-  .menu-item:nth-child(n + 5) {
-    display: none;
-  }
-  .menu-button {
-    display: flex;
-  }
-}
+
 @media (max-width: 769px) {
   .nav,
   .menu-link {
@@ -832,7 +826,14 @@ li {
   .burger-menu.active {
     right: 0;
   }
+  .menu-list .menu-item:nth-child(n + 5) {
+    display: none;
+  }
+  .menu-list.expanded .menu-item:nth-child(n + 5) {
+    display: flex;
+  }
 }
+
 @media (max-width: 700px) {
   .slider-button {
     display: none;

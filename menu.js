@@ -52,10 +52,12 @@ const generateItems = (category) => {
       menuList.appendChild(createMenuItem(el));
     });
   const menuItems = document.querySelectorAll(".menu-item");
-  if ((menuItems.length > 4) & (window.innerWidth < 801)) {
+  if (menuItems.length > 4 && window.innerWidth < 769) {
     menuButton.style.display = "flex";
+    menuList.classList.remove("expanded");
   } else {
     menuButton.style.display = "none";
+    menuList.classList.add("expanded");
   }
 };
 const tabsClickHandler = () => {
@@ -66,12 +68,6 @@ const tabsClickHandler = () => {
       selectTab(activeTab);
 
       generateItems(activeTab.textContent.trim());
-      const menuItems = document.querySelectorAll(".menu-item");
-      if ((menuItems.length > 4) & (window.innerWidth < 800)) {
-        menuButton.style.display = "flex";
-      } else {
-        menuButton.style.display = "none";
-      }
     }
   });
 };
@@ -294,13 +290,22 @@ document.addEventListener("keydown", function (event) {
   }
 });
 /*-----Menu button*/
+
 const menuButton = document.querySelector(".menu-button");
+const menuItems = menuList.querySelectorAll(".menu-item");
 
 menuButton.addEventListener("click", () => {
-  const menuItems = document.querySelectorAll(".menu-item");
-  console.log(menuItems);
-  menuItems.forEach((item) => {
-    item.style.display = "flex";
-  });
   menuButton.style.display = "none";
+  menuList.classList.add("expanded");
+});
+
+window.addEventListener("resize", () => {
+  const menuItems = menuList.querySelectorAll(".menu-item");
+  if (menuItems.length > 4 && window.innerWidth < 769) {
+    menuButton.style.display = "flex";
+    menuList.classList.remove("expanded");
+  } else {
+    menuButton.style.display = "none";
+    menuList.classList.add("expanded");
+  }
 });
