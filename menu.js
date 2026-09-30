@@ -152,7 +152,7 @@ const createModal = (item) => {
   const sizeTitle = document.createElement("p");
   sizeTitle.textContent = "Size";
   const sizeTabsContainer = document.createElement("div");
-  sizeTabsContainer.className = "menu-tabs";
+  sizeTabsContainer.className = "menu-tabs size-tabs";
   modalSize.append(sizeTitle, sizeTabsContainer);
 
   Object.entries(item.sizes).forEach(([key, value]) => {

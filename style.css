@@ -570,6 +570,7 @@ li {
 }
 .menu-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
 }
 .tab-item {
@@ -691,12 +692,14 @@ li {
   z-index: 11;
 }
 .modal {
+  margin: 0 40px;
   position: relative;
   display: flex;
   gap: 20px;
   border-radius: 40px;
   padding: 16px;
   max-width: 800px;
+  min-width: 342px;
   width: 100%;
   background: var(--background-modal);
 }
@@ -717,7 +720,12 @@ li {
 .additives {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
+}
+.additives-tabs,
+.size-tabs {
+  gap: 8px;
+  max-width: 400px;
 }
 .total {
   display: flex;
@@ -729,6 +737,7 @@ li {
   gap: 8px;
   font-size: 10px;
   line-height: 140%;
+  padding: 12px 0;
 }
 .button-close {
   border: 1px solid var(--background-container);
@@ -819,6 +828,9 @@ li {
   }
   .section-title {
     font-size: 42px;
+  }
+  .modal-image-box {
+    display: none;
   }
 }
 @media (max-width: 580px) {
