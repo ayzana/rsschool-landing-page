@@ -201,9 +201,6 @@ li {
   z-index: 10;
 }
 
-.burger-menu.active {
-  right: 0;
-}
 .burger-menu-list {
   display: flex;
   flex-direction: column;
